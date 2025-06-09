@@ -43,6 +43,12 @@ android {
     buildFeatures {
         compose = true
     }
+    // Enable test options
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
@@ -73,6 +79,9 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
+    implementation(libs.junit.junit)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.junit.ktx)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
@@ -103,7 +112,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
-kapt {
-    correctErrorTypes= true
 }
